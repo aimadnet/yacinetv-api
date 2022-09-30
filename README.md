@@ -1,9 +1,6 @@
-
 # Yacine Live TV API
 
 This is an unofficial api wrapper for yacineapp.tv in python. With this api you are able to browse tv categories and get stream links.
-
-
 
 ## API Reference
 
@@ -64,17 +61,15 @@ Install dependencies
   pip install -r requirements.txt
 ```
 
-Start the server
+Start the FastAPI Application Server using:
 
 ```bash
-  python server.py
+  bash run.sh
 ```
-
 
 ## Feedback
 
 If you have any feedback, contact me on telegram https://t.me/aimadnet
-
 
 ## Support Us
 

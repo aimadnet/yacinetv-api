@@ -27,21 +27,20 @@ class YacineTV:
     try:
       return json.loads(self.decrypt(r.text, key=self.key + timestamp))
 
-    except:
+    except Exception:
       return {
         "success": False,
         "error": "can't parse json."
       }
-  
+
   def get_categories(self):
     return self.req("/api/categories")
 
   def get_category(self, category_id):
-    return self.req("/api/categories/" + str(category_id))
+    return self.req(f"/api/categories/{str(category_id)}")
 
   def get_category_channels(self, category_id):
-    return self.req("/api/categories/" + str(category_id) + "/channels")
+    return self.req(f"/api/categories/{str(category_id)}/channels")
 
   def get_channel(self, channel_id):
-    return self.req("/api/channel/" + str(channel_id))
-  
+    return self.req(f"/api/channel/{str(channel_id)}")

@@ -9,26 +9,22 @@
 # by aimadnet
 # contact: t.me/aimadnet
 
-from flask import Flask
-from api import YacineTV
+from fastapi import FastAPI
+from authx import ProfilerMiddleware
 
-ytv = YacineTV()
-app = Flask(__name__)
+import routes
 
-@app.route('/categories', methods = ['GET'])    
-def categories():
-  return ytv.get_categories()
+app = FastAPI(
+    title="YacineTV",
+    description="This is an unofficial api wrapper for yacineapp.tv in python",
+    version="1.0.0",
+)
 
-@app.route('/categories/<int:category_id>', methods = ['GET'])    
-def category(category_id):
-  return ytv.get_category(category_id)
+app.include_router(routes.router)
+app.add_middleware(ProfilerMiddleware)
 
-@app.route('/categories/<int:category_id>/channels', methods = ['GET'])    
-def channels(category_id):
-  return ytv.get_category_channels(category_id)
 
-@app.route('/channel/<int:channel_id>', methods = ['GET'])    
-def channel(channel_id):
-  return ytv.get_channel(channel_id)
 
-app.run(host='0.0.0.0', port=8888, threaded=True, debug=False)
+@app.get("/")
+async def index():
+    return {"message": "Hello World"}

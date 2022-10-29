@@ -6,24 +6,13 @@ This is an unofficial api wrapper for yacineapp.tv in python. With this api you 
 
 #### Get all categories
 
-```http
+```bash
   GET /categories
 ```
 
-#### Get single category
-
-```http
-  GET /categories/${id}
-```
-
-| Parameter | Type     | Description                       |
-| :-------- | :------- | :-------------------------------- |
-| `id`      | `string` | **Required**. Id of category |
-
-
 #### Get category channels
 
-```http
+```bash
   GET /categories/${id}/channels
 ```
 
@@ -33,7 +22,7 @@ This is an unofficial api wrapper for yacineapp.tv in python. With this api you 
 
 #### Get channel
 
-```http
+```bash
   GET /channel/${id}
 ```
 

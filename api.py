@@ -19,14 +19,12 @@ class YacineTV:
     return result
 
   def req(self, path):
-    print(self.api_url + path)
     r = requests.get(self.api_url + path)
     timestamp = str(int(time.time()))
     if "t" in r.headers:
       timestamp = r.headers["t"]
 
     try:
-      print(self.decrypt(r.text, key=self.key + timestamp))
       return json.loads(self.decrypt(r.text, key=self.key + timestamp))
 
     except Exception:
